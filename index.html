@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMS APK DOWNLOADER</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="public/ams.png" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-screen justify-content-between">
+
+    <header class="navbar bg-dark mb-0 fixed-top navbar-expand-md border-bottom border-secondary border-opacity-25 py-3 style-sticky-nav">
+        <nav class="container-fluid px-3 px-md-5 d-flex flex-wrap align-items-center justify-content-between">
+            
+            <a class="navbar-brand fw-bold fs-3 m-0 p-0" href="#">
+                <span class="ams-purple-text text-uppercase tracking-wider">AMS</span>
+            </a>
+            
+            <button class="navbar-toggler border-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#amsNavbar" aria-controls="amsNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse bg-dark" id="amsNavbar">
+                <ul class="navbar-nav ms-auto mb-0 gap-2 gap-md-4 pt-3 pt-md-0 text-center text-md-end">
+                    <li class="nav-item"><a href="#" class="nav-link px-3 text-light hover:text-white fs-5 fw-medium">Home</a></li>
+                    <li class="nav-item"><a href="#features" class="nav-link px-3 text-light hover:text-white fs-5 fw-medium">Features</a></li>
+                    <li class="nav-item"><a href="#app-tour" class="nav-link px-3 text-light hover:text-white fs-5 fw-medium">App Tour</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link px-3 text-light hover:text-white fs-5 fw-medium">Contact</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link px-3 text-light hover:text-white fs-5 fw-medium">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container text-center mt-5 my-auto py-5 px-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                <h1 class="display-3 fw-bold mb-3 tracking-tight">
+                    Welcome to <span class="ams-purple-text">AMS</span>
+                </h1>
+                <p class="lead fs-4 text-secondary mb-5 px-md-4">
+                    Your Secure, Multi-Tenant Credential and Contact Vault. Designed for seamless, protected, and fast record management.
+                </p>
+                
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
+                    <a href="https://drive.google.com/file/d/1ISvgsQWFrS3v8nQT2LtwtTHHdnz4Xjgu/view?usp=drive_link" target="_blank" class="btn btn-ams-purple btn-lg fs-5 px-4 py-3">
+                        Download APK for Android
+                    </a>
+                    <button class="btn btn-outline-secondary btn-lg fs-5 px-4 py-3 text-white" data-bs-toggle="modal" data-bs-target="#installGuideModal">
+                        How to Install
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="features" class="container py-5 px-3">
+        
+        <div class="text-center mb-5 pb-2">
+            <h2 class="fw-bold display-5 text-white">Core Architecture & Security Pillars</h2>
+            <p class="fs-5 text-secondary">The foundational engineering mechanisms ensuring data isolation, cryptographic security, and transaction reliability.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card custom-card h-100 p-3 bg-dark border-secondary border-opacity-25 text-white d-flex flex-column justify-content-between">
+                    <div class="card-body p-0 mb-4">
+                        <h4 class="card-title fw-bold ams-purple-text mb-3">🔒 Encrypted Vault</h4>
+                        <p class="card-text fs-5 text-secondary">
+                            Secured via advanced AES-256-CBC architecture. Your sensitive login credentials, names, and profiles are heavily encrypted at rest before hitting MongoDB Atlas.
+                        </p>
+                    </div>
+                    <div class="text-center mt-auto">
+                        <img src="assets/Encrypted Accounts.png" alt="Encrypted Accounts.png" class="img-fluid rounded border border-secondary border-opacity-25 shadow" style="max-height: 180px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card custom-card h-100 p-3 bg-dark border-secondary border-opacity-25 text-white d-flex flex-column justify-content-between">
+                    <div class="card-body p-0 mb-4">
+                        <h4 class="card-title fw-bold ams-purple-text mb-3">👥 Multi-Tenant System</h4>
+                        <p class="card-text fs-5 text-secondary">
+                            Integrated seamlessly with Firebase Authentication tracking keys. Provides 100% dynamic user tenant group network security isolation configurations.
+                        </p>
+                    </div>
+                    <div class="text-center mt-auto">
+                        <img src="assets/multi tenant.png" alt="multi tenant.png" class="img-fluid rounded border border-secondary border-opacity-25 shadow" style="max-height: 180px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card custom-card h-100 p-3 bg-dark border-secondary border-opacity-25 text-white d-flex flex-column justify-content-between">
+                    <div class="card-body p-0 mb-4">
+                        <h4 class="card-title fw-bold ams-purple-text mb-3">⚡ Idempotency Guards</h4>
+                        <p class="card-text fs-5 text-secondary">
+                            Advanced anti-race condition handshake token parameters. Zero accidental duplicate database mutations or double entries on slow network connections.
+                        </p>
+                    </div>
+                    <div class="text-center mt-auto">
+                        <img src="assets/Encrypted Contacts.png" alt="Encrypted Contacts.png" class="img-fluid rounded border border-secondary border-opacity-25 shadow" style="max-height: 180px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section id="app-tour" class="py-5 bg-transparent border-top border-secondary border-opacity-10">
+        <div class="container px-3 px-md-5">
+            
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-5 text-white">Application Workflow & Interface Preview</h2>
+                <p class="fs-5 text-secondary">A step-by-step visual documentation of the compiled Android ecosystem's architecture and user experience layers.</p>
+            </div>
+
+            <div class="mb-5">
+                <h3 class="fw-bold text-white mb-4 fs-4 ams-purple-text"><i class="bi bi-shield-check me-2"></i>1. Gateway & Authentication Layer</h3>
+                <div class="row g-4 justify-content-center">
+                    
+                    <div class="col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="card bg-dark border border-secondary border-opacity-25 rounded-4 p-3 text-white shadow-sm w-100" style="max-width: 290px;">
+                            <div class="text-center bg-secondary bg-opacity-10 rounded-4 p-2 mb-3 border border-secondary border-opacity-10">
+                                <img src="assets/login.png" alt="Login & Sign Up Interface" class="img-fluid rounded-3 d-block mx-auto w-100" style="object-fit: cover; background-color: #16161a;">
+                            </div>
+                            <h5 class="fw-bold text-white mb-2">Login & Sign-Up</h5>
+                            <p class="small text-secondary mb-0">Powered by Vanilla JS pipelines hooked into Firebase. Handles input orchestration, runtime form data parameters, and instant credential validation for fresh tenants.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="card bg-dark border border-secondary border-opacity-25 rounded-4 p-3 text-white shadow-sm w-100" style="max-width: 290px;">
+                            <div class="text-center bg-secondary bg-opacity-10 rounded-4 p-2 mb-3 border border-secondary border-opacity-10">
+                                <img src="assets/resset.png" alt="Password Reset Protocol" class="img-fluid rounded-3 d-block mx-auto w-100" style="object-fit: cover; background-color: #16161a;">
+                            </div>
+                            <h5 class="fw-bold text-white mb-2">Password Reset Recovery</h5>
+                            <p class="small text-secondary mb-0">An automated secure recovery module. Triggers an independent serverless email token handshake deployment directly to verified tenant accounts.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mb-5 border-top border-secondary border-opacity-10 pt-4">
+                <h3 class="fw-bold text-white mb-4 fs-4 ams-purple-text"><i class="bi bi-cpu me-2"></i>2. Core Data Isolation Clusters</h3>
+                <div class="row g-4 justify-content-center">
+                    
+                    <div class="col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="card bg-dark border border-secondary border-opacity-25 rounded-4 p-3 text-white shadow-lg w-100" style="max-width: 290px;">
+                            <div class="text-center bg-secondary bg-opacity-10 rounded-4 p-2 mb-3 border border-secondary border-opacity-10">
+                                <img src="assets/ams dashboard.png" alt="AMS Main Dashboard" class="img-fluid rounded-3 d-block mx-auto w-100" style="object-fit: cover; background-color: #16161a;">
+                            </div>
+                            <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 mb-2 d-inline-block px-2 py-1 fs-7 rounded-pill">Central Command Node</span>
+                            <h5 class="fw-bold text-white mb-2">AMS Core Dashboard</h5>
+                            <p class="small text-secondary mb-0">The primary landing console interface for authenticated tenants. Synthesizes cryptographic group telemetry counters and handles real-time dynamic routing across sub-management clusters.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="card bg-dark border border-secondary border-opacity-25 rounded-4 p-3 text-white shadow-lg w-100" style="max-width: 290px;">
+                            <div class="text-center bg-secondary bg-opacity-10 rounded-4 p-2 mb-3 border border-secondary border-opacity-10">
+                                <img src="assets/account records.png" alt="Account Management Dashboard" class="img-fluid rounded-3 d-block mx-auto w-100" style="object-fit: cover; background-color: #16161a;">
+                            </div>
+                            <span class="badge bg-ams-purple text-white mb-2 d-inline-block px-2 py-1 fs-7 rounded-pill">MongoDB Atlas Connected</span>
+                            <h5 class="fw-bold text-white mb-2">Account Vault Interface</h5>
+                            <p class="small text-secondary mb-0">The inner secure environment vault. Displays system credentials, tokens, and telemetry logs encrypted under AES-256-CBC schemas before storage syncing execution.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="card bg-dark border border-secondary border-opacity-25 rounded-4 p-3 text-white shadow-lg w-100" style="max-width: 290px;">
+                            <div class="text-center bg-secondary bg-opacity-10 rounded-3 p-2 mb-3 border border-secondary border-opacity-10">
+                                <img src="assets/my contacts.png" alt="Contact Management Hub" class="img-fluid rounded-3 d-block mx-auto w-100" style="object-fit: cover; background-color: #16161a;">
+                            </div>
+                            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 mb-2 d-inline-block px-2 py-1 fs-7 rounded-pill">CRUD Real-time Staging</span>
+                            <h5 class="fw-bold text-white mb-2">Contact Profiling Matrix</h5>
+                            <p class="small text-secondary mb-0">Allows tenants to perform operations on specific network parameters. Completely decoupled dynamically per group to maintain strict isolation guidelines.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="border-top border-secondary border-opacity-10 pt-4">
+                <h3 class="fw-bold text-white mb-4 fs-4 ams-purple-text"><i class="bi bi-door-open-fill me-2"></i>3. Session Lifecycle Termination</h3>
+                <div class="row g-4 justify-content-center">
+                    
+                    <div class="col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="card bg-dark border border-secondary border-opacity-25 rounded-4 p-3 text-white shadow-sm w-100" style="max-width: 290px;">
+                            <div class="text-center bg-secondary bg-opacity-10 rounded-4 p-2 mb-3 border border-secondary border-opacity-10">
+                                <img src="assets/settings2.png" alt="Secure Session Logout" class="img-fluid rounded-3 d-block mx-auto w-100" style="object-fit: cover; background-color: #16161a;">
+                            </div>
+                            <h5 class="fw-bold text-danger mb-2">Session Expiry & Logout</h5>
+                            <p class="small text-secondary mb-0">Instantly kills the active token state tracker. Clears volatile local caching pipelines and tears down connection states to prevent security race-condition injection flaws.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-transparent">
+        <div class="container px-3 px-md-5">
+            <div class="bg-dark rounded-4 py-5 px-4 px-md-5 border border-secondary border-opacity-25 text-white shadow-lg">
+                
+                <div class="text-center mb-5">
+                    <div class="feature bg-ams-purple text-white rounded-3 mb-3 d-inline-flex p-3 align-items-center justify-content-center fs-4 shadow-sm">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <h2 class="fw-bold display-5 text-white">Contact Us</h2>
+                    <p class="lead fw-normal text-secondary mb-0">Have questions or system feedback regarding the AMS platform? Send a secure message transmission below.</p>
+                </div>
+
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <form id="contactForm" autocomplete="off">
+
+                            <div class="form-floating mb-3 text-dark">
+                                <input class="form-control bg-transparent text-white border-secondary fs-5" id="name" type="text" placeholder="Enter name..." required />
+                                <label for="name" class="text-secondary bg-transparent text-primary">Full name</label>
+                            </div>
+
+                            <div class="form-floating mb-3 text-dark">
+                                <input class="form-control bg-transparent text-white border-secondary fs-5" id="email" type="email" placeholder="name@example.com" required />
+                                <label for="email" class="text-secondary bg-transparent text-primary">Email address</label>
+                            </div>
+
+                            <div class="form-floating mb-3 text-dark">
+                                <input class="form-control bg-transparent text-white border-secondary fs-5" id="phone" type="tel" placeholder="(123) 456-7890" required />
+                                <label for="phone" class="text-secondary bg-transparent text-primary">Phone number</label>
+                            </div>
+
+                            <div class="form-floating mb-3 text-dark">
+                                <textarea class="form-control bg-transparent text-white border-secondary fs-5" id="message" placeholder="Enter message..." style="height: 12rem" required></textarea>
+                                <label for="message" class="text-secondary bg-transparent text-primary">Message</label>
+                            </div>
+
+                            <div class="d-grid pt-2">
+                                <button class="btn btn-ams-purple btn-lg fs-5 py-3 fw-semibold shadow" id="submitBtn" type="submit">
+                                    Send Message
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5 bg-transparent">
+        <div class="container px-3 px-md-5">
+            
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-5 text-white">System Architecture & Usage</h2>
+                <p class="fs-5 text-secondary">Discover the core infrastructure engineering behind the platform and how to utilize the ecosystem.</p>
+            </div>
+
+            <div class="row g-5 align-items-center">
+                
+                <div class="col-md-6 text-white">
+                    <h3 class="fw-bold ams-purple-text mb-3">Utilizing the AMS Platform</h3>
+                    <p class="fs-5 text-secondary">
+                        The <strong>Account Management System (AMS)</strong> is engineered as a highly secure digital vault application designed to safeguard credential parameters and telemetry profiles. Users can seamlessly store, manage, and audit dynamic encrypted database logs through an intuitive user interface framework.
+                    </p>
+                    <p class="fs-5 text-secondary">
+                        By accessing the compiled Android package framework execution build (`.apk`), deployment operations can be handled across mobile computing structures. This enables full data control, real-time platform security management, and synchronized cloud validation directly on your device.
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-4 bg-dark border border-secondary border-opacity-25 rounded-3 shadow-lg text-white">
+                        <h4 class="fw-bold text-white mb-3 fs-4">Core Technology Stack</h4>
+                        <p class="fs-5 text-secondary mb-4">The core platform infrastructure is built and deployed utilizing contemporary software development ecosystems and design patterns:</p>
+                        
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">MVC Architecture</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Reactjs Frontend</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Nodejs Engine</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Vanilla JS (Sign-Up Auth)</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Firebase Serverless</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">MongoDB Atlas</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Android Studio (SDK)</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Capacitor Mobile API</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Mongoose ODM</span>
+                            <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white fs-6 px-3 py-2">Ubuntu Linux Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <div class="modal fade" id="installGuideModal" tabindex="-1" aria-labelledby="installGuideModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark text-white border border-secondary border-opacity-25 rounded-4 shadow-lg">
+                
+                <div class="modal-header border-bottom border-secondary border-opacity-25 p-4">
+                    <div class="d-flex align-items-center">
+                        <div class="feature bg-ams-purple text-white rounded-3 me-3 d-inline-flex p-2 align-items-center justify-content-center fs-5 shadow-sm">
+                            <i class="bi bi-phone-vibrate-fill"></i>
+                        </div>
+                        <h5 class="modal-title fw-bold display-7" id="installGuideModalLabel">Android APK Deployment Guide</h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-shadow="none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body p-4">
+                    <p class="text-secondary fs-5 mb-4">Follow these engineering runtime deployment steps to execute and initialize the compiled environment build on your mobile architecture:</p>
+                    
+                    <div class="row g-4">
+                        
+                        <div class="col-12">
+                            <div class="p-3 rounded-3 bg-secondary bg-opacity-10 border border-secondary border-opacity-10 d-flex align-items-start">
+                                <span class="badge bg-ams-purple text-white rounded-circle fs-5 me-3 px-3 py-2 d-inline-flex align-items-center justify-content-center" style="width: 2.5rem; height: 2.5rem;">1</span>
+                                <div>
+                                    <h6 class="fw-bold text-white fs-5 mb-1">Download Package Payload</h6>
+                                    <p class="text-secondary fs-6 mb-0">Trigger the main interface compilation link by clicking the "Download APK for Android" asset button to retrieve the latest `.apk` package distribution.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="p-3 rounded-3 bg-secondary bg-opacity-10 border border-secondary border-opacity-10 d-flex align-items-start">
+                                <span class="badge bg-ams-purple text-white rounded-circle fs-5 me-3 px-3 py-2 d-inline-flex align-items-center justify-content-center" style="width: 2.5rem; height: 2.5rem;">2</span>
+                                <div>
+                                    <h6 class="fw-bold text-white fs-5 mb-1">Configure Unknown Security Sources</h6>
+                                    <p class="text-secondary fs-6 mb-0">Navigate through your device's core system architecture via <em>Settings > Security > Privacy</em>, then toggle on permissions for "Install Unknown Apps" for your mobile browser interface or system file management coordinator.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="p-3 rounded-3 bg-secondary bg-opacity-10 border border-secondary border-opacity-10 d-flex align-items-start">
+                                <span class="badge bg-ams-purple text-white rounded-circle fs-5 me-3 px-3 py-2 d-inline-flex align-items-center justify-content-center" style="width: 2.5rem; height: 2.5rem;">3</span>
+                                <div>
+                                    <h6 class="fw-bold text-white fs-5 mb-1">Execute Package Installation</h6>
+                                    <p class="text-secondary fs-6 mb-0">Locate the downloaded installation runtime layer inside your hardware terminal storage directory cache, run the package manager execution sequence, confirm permissions setup, and launch the application ecosystem.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="modal-footer border-top border-secondary border-opacity-25 p-3">
+                    <button type="button" class="btn btn-ams-purple px-4 py-2 fw-semibold fs-6 shadow-sm rounded-3" data-bs-dismiss="modal">Acknowledge & Proceed</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-secondary py-5 border-top border-secondary border-opacity-10">
+        <div class="container px-3 px-md-5">
+            <div class="row gy-4 justify-content-between align-items-center">
+                
+                <div class="col-md-5 text-center text-md-start">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-2">
+                        <span class="fw-bold text-white fs-4 tracking-wider">AMS<span class="text-ams-purple">.</span></span>
+                        <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 ms-3 fs-7 px-2 py-1">
+                            <span class="spinner-grow spinner-grow-sm text-success me-1" role="status" style="width: 0.5rem; height: 0.5rem;"></span>
+                            Live Node Staging
+                        </span>
+                    </div>
+                    <p class="small mb-0 text-secondary">
+                        An advanced enterprise security ecosystem and full-stack architecture framework designed for decoupled credential automation.
+                    </p>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="mb-3">
+                        <a href="#about" class="text-secondary text-decoration-none mx-2 transition-all hover-white small fw-medium">About System</a>
+                        <span class="text-muted text-opacity-25">|</span>
+                        <a href="#contact" class="text-secondary text-decoration-none mx-2 transition-all hover-white small fw-medium">Contact Hub</a>
+                    </div>
+                    <p class="small mb-0 text-muted">
+                        &copy; 2026 AMS Architecture Group. All system rights reserved.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
