@@ -31,71 +31,52 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const navbarCollapse = document.getElementById("amsNavbar");
+    const navbarCollapse = document.getElementById("amsNavbar"); // Siniguro nating tugma sa ID ng navbar mo
     const navbarToggler = document.querySelector(".navbar-toggler");
 
     if (navbarCollapse && navbarToggler) {
-        
+        // 1. Kuhanin ang mga link elements sa loob ng menu
         const navLinks = document.querySelectorAll(
             "#amsNavbar .nav-link:not(.dropdown-toggle), #amsNavbar .dropdown-item"
         );
 
-        const safeHideMenu = () => {
+        // 🚀 SAFE MOBILITY INSTANCE CONTEXT: Isang beses lang natin i-initialize ang Bootstrap Controller
+        let collapseInstance = null;
+        if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+            collapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+        }
+
+        // Helper function para sa ligtas na pagsasara sa laptop man o phone
+        const triggerMenuHide = () => {
             if (navbarCollapse.classList.contains("show")) {
-                if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
-                    const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse) || 
-                                             new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                if (collapseInstance) {
                     collapseInstance.hide();
                 } else {
-                    navbarToggler.click(); 
+                    // Fallback para sa Android WebView kung sakaling mag-load huli ang Bootstrap bundle
+                    navbarToggler.click();
                 }
             }
         };
 
+        // 📱 Auto-Close kapag pinindot ang mga Links
         navLinks.forEach(link => {
-            ["click", "touchstart"].forEach(eventType => {
-                link.addEventListener(eventType, function (e) {
-                    
-                    const targetId = this.getAttribute("href");
-
-                    if (targetId && targetId.startsWith("#") && targetId.length > 1) {
-                        
-                        e.preventDefault(); 
-                        
-                        const targetSection = document.querySelector(targetId);
-                        
-                        if (targetSection) {
-                            safeHideMenu();
-
-                            setTimeout(() => {
-                                targetSection.scrollIntoView({
-                                    behavior: "smooth", 
-                                    block: "start"      
-                                });
-                            }, 180);
-                        }
-                    } else if (targetId === "#") {
-                        e.preventDefault();
-                        safeHideMenu();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                });
+            link.addEventListener("click", () => {
+                triggerMenuHide();
             });
         });
 
-        ["click", "touchstart"].forEach(eventType => {
-            document.addEventListener(eventType, (event) => {
-                const target = event.target;
+        // 🔒 Outside Click Dismissal: Magsasara kapag pinindot ang labas ng menu
+        document.addEventListener("click", (event) => {
+            const target = event.target;
 
-                if (target instanceof Node) {
-                    const isClickInsideMenu = navbarCollapse.contains(target);
-                    const isClickToggler = navbarToggler.contains(target);
+            if (target instanceof Node) {
+                const isClickInsideMenu = navbarCollapse.contains(target);
+                const isClickToggler = navbarToggler.contains(target);
 
-                    if (!isClickInsideMenu && !isClickToggler) {
-                        safeHideMenu();
-                    }
+                if (!isClickInsideMenu && !isClickToggler) {
+                    triggerMenuHide();
                 }
-            });
+            }
         });
     }
 });
