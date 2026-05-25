@@ -31,41 +31,36 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const navbarCollapse = document.getElementById("amsNavbar"); // Siniguro nating tugma sa ID ng navbar mo
+    const navbarCollapse = document.getElementById("amsNavbar"); 
     const navbarToggler = document.querySelector(".navbar-toggler");
 
     if (navbarCollapse && navbarToggler) {
-        // 1. Kuhanin ang mga link elements sa loob ng menu
+
         const navLinks = document.querySelectorAll(
             "#amsNavbar .nav-link:not(.dropdown-toggle), #amsNavbar .dropdown-item"
         );
 
-        // 🚀 SAFE MOBILITY INSTANCE CONTEXT: Isang beses lang natin i-initialize ang Bootstrap Controller
         let collapseInstance = null;
         if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
             collapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
         }
 
-        // Helper function para sa ligtas na pagsasara sa laptop man o phone
         const triggerMenuHide = () => {
             if (navbarCollapse.classList.contains("show")) {
                 if (collapseInstance) {
                     collapseInstance.hide();
                 } else {
-                    // Fallback para sa Android WebView kung sakaling mag-load huli ang Bootstrap bundle
                     navbarToggler.click();
                 }
             }
         };
 
-        // 📱 Auto-Close kapag pinindot ang mga Links
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
                 triggerMenuHide();
             });
         });
 
-        // 🔒 Outside Click Dismissal: Magsasara kapag pinindot ang labas ng menu
         document.addEventListener("click", (event) => {
             const target = event.target;
 
