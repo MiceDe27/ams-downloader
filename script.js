@@ -75,3 +75,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+const backToTopButton = document.getElementById("btn-back-to-top");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+}
+
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
