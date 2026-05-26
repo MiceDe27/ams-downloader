@@ -41,3 +41,19 @@ nav{
     color: white;
     border: 1px solid #2d2d2d;
 }
+#btn-back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  transition: all 0.3s ease;
+}
+#btn-back-to-top i {
+    font-size: 20px; ;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
